@@ -1,0 +1,5 @@
+<%= form_for(@channel.active_subscriptions.find_by(subscribed_id: follow.id),
+             html: { method: :delete }) do |f| %>
+  <div><%= hidden_field_tag :subscriber_id, @channel.id %></div>
+  <%= f.submit "Unsubscribe", class: "btn btn-unsubscribe" %>
+<% end %>

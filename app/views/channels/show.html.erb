@@ -1,0 +1,25 @@
+<% provide(:title, @title) %>
+<div class="container">
+  <div class="row">
+    <div class="channel-feed-header">
+     <section>
+      <h1 class="feed-title">
+        <%= @channel.channel_name %>
+      </h1>
+      <span class="channel-links">
+        <%= link_to "subscribers", subscribing_user_channel_path%>
+        <%= link_to "edit", edit_user_channel_path %>
+        <%= link_to "delete", [@user, @channel], method: :delete,
+                    data: { confirm: "Delete channel?" },
+                    title: @channel.channel_name %>
+      </span>
+      </section>
+    </div>
+    <% if @feed_items.any? %>
+      <ol class="posts">
+        <%= render @feed_items %>
+      </ol>
+      <%= will_paginate @feed_items %>
+    <% end %>
+  </div>
+</div>

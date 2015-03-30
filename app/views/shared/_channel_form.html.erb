@@ -1,0 +1,9 @@
+<%= form_for([@user, @channel], method: :post, html: {class: "form-inline"}) do |f| %>
+  <!--shared error message-->
+  <div class="field input-group-md form-group">
+    <%= f.text_field :channel_name, placeholder: "New channel", class: "form-control", maxlength: 20, rows: 1 %>
+  </div>
+  <div class="form-group">
+    <%= f.submit "Add", class: "btn btn-primary form-control" %>
+  </div>
+<% end %>

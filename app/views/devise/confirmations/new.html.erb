@@ -1,0 +1,32 @@
+<% provide(:title, "Confirm User") %>
+
+<div class="container">
+  <div class="row">
+    <%= devise_error_messages! %>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 col-md-push-3 confirmation-container">
+
+      <h2>Resend confirmation instructions</h2>
+
+      <%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
+
+        <div class="form-group">
+          <%= f.label :email %><br />
+          <%= f.email_field :email, autofocus: true, placeholder: "Registered email", class: 'form-control input-lg' %>
+        </div>
+
+        <div class="actions">
+          <%= f.submit "Resend confirmation instructions", class:"btn btn-default btn-lg btn-block" %>
+        </div>
+      <% end %>
+
+      <br />
+
+      <%= render "devise/shared/links" %>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,13 @@
+<% provide(:title, 'New channel') %>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <h1>New channel</h1>
+      <%= form_for([@user, @channel]) do |f| %>
+        <%= f.text_field :channel_name, placeholder: "Channel name", class: 'form-control' %>
+
+        <%= f.submit "Create channel", class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
+</div>

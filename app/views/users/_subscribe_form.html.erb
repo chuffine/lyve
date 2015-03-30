@@ -1,0 +1,9 @@
+<% unless current_user?(@user) %>
+  <div id="subscribe_form_<%= chan.id + 19890807 %>">
+    <% unless chan.subscribing?(@user) %>
+      <%= render partial: 'subscribe_channel', locals: {chan: chan} %>
+    <% else %>
+      <%= render partial: 'unsubscribe_channel', locals: {chan: chan} %>
+    <% end %>
+  </div>
+<% end %>

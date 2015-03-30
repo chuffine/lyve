@@ -1,0 +1,5 @@
+<%= link_to image_tag(current_user.avatar.url(:thumb), size: "80x80", alt: current_user.username, class: "user-avatar"), current_user %>
+<h1><%= current_user.username %></h1>
+<span><%= pluralize(current_user.posts.count, "post") %></span>
+<span class="channel-path"><%= link_to "My channels", user_channels_path(@user) %></span>
+<span class="index-path"><%= link_to "Users index", users_path %></span>

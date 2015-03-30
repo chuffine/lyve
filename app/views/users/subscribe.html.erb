@@ -1,0 +1,20 @@
+<% provide(:title, @title) %>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <h2>Subscribe <%= link_to "#{@user.full_name} (#{@user.username})", user_path(@user)%> to channels:</h2>
+    </div>
+    <% @channels.each do |chan| %>
+      <div class="col-xs-4">
+        <div class="subscription-card">
+          <section class="subscribe-channel-name">
+            <h3><%= link_to "#{chan.channel_name}", user_channel_path(current_user, chan) %></h3>
+          </section>
+          <section class="subscription-button">
+            <%= render partial: 'subscribe_form',  locals: { chan: chan } %>
+          </section>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

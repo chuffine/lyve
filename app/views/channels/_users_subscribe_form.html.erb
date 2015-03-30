@@ -1,0 +1,7 @@
+<div id="subscribe_form_<%= follow.id + 19890807 %>">
+  <% unless @channel.subscribing?(follow) %>
+    <%= render partial: 'subscribe_user', locals: {follow: follow} %>
+  <% else %>
+    <%= render partial: 'unsubscribe_user', locals: {follow: follow} %>
+  <% end %>
+</div>

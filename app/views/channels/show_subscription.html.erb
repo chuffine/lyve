@@ -1,0 +1,14 @@
+<% provide(:title, @title) %>
+<div class="container">
+  <div class="row">
+    <h1>
+      <%= @channel.channel_name %>
+    </h1>
+    <% if @channel.subscribing.any? %>
+      <ol class="channels">
+        <%= render :partial => 'subscription', :collection => @subscriptions %>
+      </ol>
+        <%= will_paginate @subscriptions %>
+    <% end %>
+  </div>
+</div>

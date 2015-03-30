@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="row">
+    <div class="user-channels-header">
+      <section>
+        <div class="col-xs-9">
+          <h1>Channels</h1>
+        </div>
+        <div class="col-xs-3">
+          <section class="channels_form">
+            <%= render 'shared/channel_form' %>
+          </section>
+        </div>
+      </section>
+    </div>
+    <div class="col-xs-12">
+      <% if current_user.channels.any? %>
+        <ol class="channels">
+          <%= render @channels %>
+        </ol>
+        <div class="paginate-wrapper">
+          <%= will_paginate @channels %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

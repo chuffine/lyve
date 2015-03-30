@@ -1,0 +1,32 @@
+<% provide(:title, "Edit #{@channel.channel_name}") %>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="edit-channel-name">
+        <h1>Edit channel: </h1>
+        <%= form_for([@user, @channel]) do |f| %>
+          <%= f.text_field :channel_name, placeholder: "#{@channel.channel_name}", class: 'form-control edit-name-form' %>
+          <%= f.submit "Change channel name", class: "btn btn-primary edit-name-submit" %>
+        <% end %>
+      </div>
+      <div class="add-user-subs">
+        <h1>Add users to channel</h1>
+      </div>
+      <div>
+        <% @follows.each do |follow| %>
+          <div class="col-xs-4">
+            <div class="subscribe-user-card">
+              <section class="subscribe-user-name">
+                <!--<?% link_to image_tag("http://www.gravatar.com/avatar/00000000000000000000000000000000?d=mm&f=y", alt: "Photo", size: "50", class: "post-avatar"), follow %>-->
+                <h3><%= link_to "#{follow.username}", user_path(follow) %></h3>
+              </section>
+              <section class="subscription-button">
+                <%= render partial: 'users_subscribe_form',  locals: { follow: follow } %>
+              </section>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,13 @@
+<div class="channel-wrapper">
+  <div class="channel-card">
+    <h1>
+      <%= link_to channel.channel_name, [@user, channel] %>
+    </h1>
+    <div class="right-addon channel-addon">
+      <a href="<%= edit_user_channel_path(@user, channel) %>"><i class='glyphicon glyphicon-list-alt'></i></a>
+    </div>
+  </div>
+  <% unless channel.feed.first.nil? %>
+      <%=  render channel.feed.first %>
+  <% end %>
+</div>

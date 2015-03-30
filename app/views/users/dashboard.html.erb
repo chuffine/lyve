@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="row">
+    <aside class="col-xs-4 sidebar-out">
+      <div class="sidebar">
+        <section class="user_info">
+          <%= render 'shared/user_info' %>
+        </section>
+        <section class="post_form">
+          <%= render 'shared/post_form' %>
+        </section>
+        <section class="channels_form_dash">
+          <%= render 'shared/channel_form' %>
+        </section>
+      </div>
+    </aside>
+    <div class="col-xs-8">
+      <div class="dashboard-container">
+        <div class="dashboard-header">
+          <h1><%= link_to "Channel List", user_channels_path(@user) %></h1><span><p>(click channel title for full channel feed)</p></span>
+        </div>
+        <% if current_user.channels.any? %>
+          <ol class="channels">
+            <%= render @channels %>
+          </ol>
+          <div class="paginate-wrapper">
+            <%= will_paginate @channels %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

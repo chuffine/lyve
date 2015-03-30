@@ -1,0 +1,8 @@
+<%= form_for(@post) do |f| %>
+  <!--shared error message-->
+  <div class="field input-group-md">
+    <%= f.text_area :content, placeholder: "365 characters... Go lyve", class: "form-control", maxlength: 365,
+                                                                        size: 365, rows: 8%>
+  </div>
+  <%= f.submit "Go lyve", class: "btn btn-primary btn-block" %>
+<% end %>

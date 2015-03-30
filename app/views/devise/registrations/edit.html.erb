@@ -1,0 +1,79 @@
+<% provide(:title, "Edit Account") %>
+<div class="container">
+  <div class="row">
+    <%= devise_error_messages! %>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 col-md-push-3 edit-container">
+
+      <h2>Edit <%= resource_name.to_s.humanize %></h2>
+
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+
+        <div class="image-upload">
+          <span class="form-group edit-image">
+            <p>Current profile image:</p><%= image_tag(current_user.avatar.url(:thumb), size: "100x100", alt: "Profile") %>
+          </span>
+          <br />
+          <span class="form-group upload-button">
+            <%= f.file_field :avatar, class: 'upload-button' %>
+          </span>
+        </div>
+
+        <br/>
+        <div class="form-group">
+          <%= f.label :email %><br />
+          <%= f.email_field :email, autofocus: true, class: 'form-control input-lg' %>
+        </div>
+
+        <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+          <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+        <% end %>
+
+        <div class="form-group">
+          <%= f.label :username %><br />
+          <%= f.text_field :username, autofocus: true, class: 'form-control input-lg', placeholder: '#{@user.username}' %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :phone_number %><br />
+          <%= f.text_field :phone_number, autofocus: true, class: 'form-control input-lg' %>
+        </div>
+
+
+
+        <div class="form-group">
+          <%= f.label :new_password %> <i>(leave blank if you don't want to change it)</i><br />
+          <%= f.password_field :password, autocomplete: "off", class: 'form-control input-lg' %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :new_password_confirmation %><br />
+          <%= f.password_field :password_confirmation, autocomplete: "off", class: 'form-control input-lg' %>
+        </div>
+
+        <br/>
+        <div class="form-group">
+          <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+          <%= f.password_field :current_password, autocomplete: "off", class: 'form-control input-lg' %>
+        </div>
+
+        <div class="actions">
+          <%= f.submit "Update", class:"btn btn-default btn-lg btn-block" %>
+        </div>
+      <% end %>
+
+      <br />
+
+      <h4>Cancel my account</h4>
+
+      <p>Lose access all your lyve updates? <%= link_to "Cancel my account", registration_path(resource_name),
+                                    method: :delete,
+                                    data: { confirm: "Are you sure?" } %></p>
+
+    </div>
+  </div>
+</div>

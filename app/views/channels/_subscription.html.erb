@@ -1,0 +1,8 @@
+<% @subscriptions.each do |sub| %>
+  <li class="subscriber-wrapper">
+    <div class="subscriber-card">
+      <%= link_to image_tag("http://www.gravatar.com/avatar", size: "50", class: "gravatar sub-avatar"), sub %>
+      <h3><%= sub.full_name %></h3>
+    </div>
+  </li>
+<% end %>

@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+    <% if user_signed_in? %>
+    <footer class="footer-post">
+      <small>
+        Lyve - real time updates
+      </small>
+      <nav>
+        <ul>
+          <!--<li><?%= link_to "Help", help_path %></li>-->
+          <!--<li><?%= link_to "Contact", contact_path %></li>-->
+          <li><%= link_to "About", about_path %></li>
+        </ul>
+      </nav>
+    </footer>
+    <% else %>
+    <footer class="footer-pre">
+      <small>
+        Lyve - real time updates
+      </small>
+      <nav>
+        <ul>
+          <!--<li><?%= link_to "Help", help_path %></li>-->
+          <!--<li><?%= link_to "Contact", contact_path %></li>-->
+          <li><%= link_to "About", about_path %></li>
+        </ul>
+      </nav>
+    </footer>
+    <% end %>
+    </div>
+  </div>
+</div>

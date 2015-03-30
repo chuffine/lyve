@@ -1,0 +1,16 @@
+<div class="post-card">
+  <li id="post-<%= post.id + 19890807 %>">
+    <%= link_to image_tag(post.user.avatar.url(:mini), alt: "Photo", size: "50x50", class: "post-avatar"), post.user %>
+    <span class="user"><%= link_to "<h4><span class='post-fn'>#{post.user.full_name} </span><span class='post-un'>(#{post.user.username})</span></h4>".html_safe, post.user %></span>
+    <div class="post-border"></div>
+    <div class="content"><p><%= word_wrap(post.content) %></p></div>
+    <span class="timestamp">
+      Posted <%= time_ago_in_words(post.created_at) %> ago.
+      <% if current_user == post.user %>
+        <%= link_to "delete", post, method: :delete,
+                    data: { confirm: "Delete post?" },
+                    title: post.content %>
+      <% end %>
+    </span>
+  </li>
+</div>
